@@ -74,7 +74,7 @@
 						value={item.value}
 						label={item.label}
 					>
-						{item.label.replace('gpt-3.5-turbo','Kiri')}
+						{item.label.replace('gpt-3.5-turbo','kiri').replace('gpt-4o','kiri:o')}
 
 						{#if value === item.value}
 							<div class="ml-auto">

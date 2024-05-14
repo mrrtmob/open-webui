@@ -49,7 +49,7 @@
 							.filter((model) => model.name !== 'hr')
 							.map((model) => ({
 								value: model.id,
-								label: model.name.replace('gpt-3.5-turbo', 'Kiri'),
+								label: model.name.replace('gpt-3.5-turbo','kiri').replace('gpt-4o','kiri:o'),
 								info: model
 							}))}
 						bind:value={selectedModel}
