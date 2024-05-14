@@ -204,15 +204,6 @@ async def get_ollama_tags(
             return models
             
         if enabled:
-            models["models"] = list(
-                filter(
-                    lambda model: model["name"] in model_filter_list,
-                    models["models"],
-                )
-            )
-            return models
-
-        if enabled:
             if user.role == "user":
                 models["models"] = list(
                     filter(
@@ -220,7 +211,6 @@ async def get_ollama_tags(
                         models["models"],
                     )
                 )
-                return models
         return models
     else:
         url = app.state.OLLAMA_BASE_URLS[url_idx]
@@ -1102,7 +1092,6 @@ async def get_openai_models(
                     models["models"],
                 )
             )
-            return models
         
         if enabled:
             models["models"] = list(
@@ -1111,16 +1100,6 @@ async def get_openai_models(
                     models["models"],
                 )
             )
-            return models
-
-        if app.state.ENABLE_MODEL_FILTER:
-            if user.role == "user":
-                models["models"] = list(
-                    filter(
-                        lambda model: model["name"] in model_filter_list,
-                        models["models"],
-                    )
-                )
 
         return {
             "data": [
