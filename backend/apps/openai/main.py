@@ -249,9 +249,10 @@ async def get_models(url_idx: Optional[int] = None, user=Depends(get_current_use
             model_filter_list = app.state.MODEL_FILTER_LIST
         
         if user.whitelist_enabled:
+            user_models_json = json.loads(user.models)
             models["data"] = list(
                 filter(
-                    lambda model: model["id"] in user.models,
+                    lambda model: model["id"] in user_models_json,
                     models["data"],
                 )
             )
