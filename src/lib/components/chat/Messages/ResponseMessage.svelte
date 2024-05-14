@@ -343,7 +343,7 @@
 				{#if message.model in modelfiles}
 					{modelfiles[message.model]?.title}
 				{:else}
-					{message.model ? ` ${message.model}` : ''}
+					{message.model ? ` ${message.model.replace('gpt-3.5-turbo','Kiri')}` : ''}
 				{/if}
 
 				{#if message.timestamp}

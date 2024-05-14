@@ -49,7 +49,7 @@
 							.filter((model) => model.name !== 'hr')
 							.map((model) => ({
 								value: model.id,
-								label: model.name,
+								label: model.name.replace('gpt-3.5-turbo', 'Kiri'),
 								info: model
 							}))}
 						bind:value={selectedModel}
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 
-			{#if selectedModelIdx === 0}
+			<!-- {#if selectedModelIdx === 0}
 				<div class="  self-center mr-2 disabled:text-gray-600 disabled:hover:text-gray-600">
 					<Tooltip content={$i18n.t('Add Model')}>
 						<button
@@ -103,7 +103,7 @@
 						</button>
 					</Tooltip>
 				</div>
-			{/if}
+			{/if} -->
 		</div>
 	{/each}
 </div>

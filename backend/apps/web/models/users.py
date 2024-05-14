@@ -78,9 +78,9 @@ class UsersTable:
         name: str,
         email: str,
         profile_image_url: str = "/user.png",
-        models: str = "[]",
-        whitelist_enabled: bool = False,
         role: str = "pending",
+        whitelist_enabled: bool = False,
+        models: str = "[]",
     ) -> Optional[UserModel]:
         user = UserModel(
             **{

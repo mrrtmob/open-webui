@@ -237,7 +237,7 @@
 					>
 						<div class="flex items-center gap-2">
 							<div class="line-clamp-1">
-								{item.label}
+								{item.label.replace('gpt-3.5-turbo','Kiri')}
 
 								<span class=" text-xs font-medium text-gray-600 dark:text-gray-400"
 									>{item.info?.details?.parameter_size ?? ''}</span
