@@ -15,6 +15,8 @@
 	import Chats from './Settings/Chats.svelte';
 	import Connections from './Settings/Connections.svelte';
 	import Images from './Settings/Images.svelte';
+	import User from '../icons/User.svelte';
+	import Personalization from './Settings/Personalization.svelte';
 
 	const i18n = getContext('i18n');
 
@@ -165,6 +167,21 @@
 						<div class=" self-center">{$i18n.t('Interface')}</div>
 					</button>
 				{/if}
+				
+				<button
+					class="px-2.5 py-2.5 min-w-fit rounded-lg flex-1 md:flex-none flex text-right transition {selectedTab ===
+					'personalization'
+						? 'bg-gray-200 dark:bg-gray-700'
+						: ' hover:bg-gray-300 dark:hover:bg-gray-800'}"
+					on:click={() => {
+						selectedTab = 'personalization';
+					}}
+				>
+					<div class=" self-center mr-2">
+						<User />
+					</div>
+					<div class=" self-center">{$i18n.t('Personalization')}</div>
+				</button>
 					
 				{#if $user?.role === 'admin'}
 					<button
@@ -301,7 +318,7 @@
 					<div class=" self-center">{$i18n.t('About')}</div>
 				</button>
 			</div>
-			<div class="flex-1 md:min-h-[25rem]">
+			<div class="flex-1 md:min-h-[28rem]">
 				{#if selectedTab === 'general'}
 					<General
 						{getModels}
@@ -321,6 +338,13 @@
 					/>
 				{:else if selectedTab === 'interface'}
 					<Interface
+						{saveSettings}
+						on:save={() => {
+							toast.success($i18n.t('Settings saved successfully!'));
+						}}
+					/>
+				{:else if selectedTab === 'personalization'}
+					<Personalization
 						{saveSettings}
 						on:save={() => {
 							toast.success($i18n.t('Settings saved successfully!'));

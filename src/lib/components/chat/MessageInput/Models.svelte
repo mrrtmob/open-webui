@@ -156,7 +156,7 @@
 								on:focus={() => {}}
 							>
 								<div class=" font-medium text-black line-clamp-1">
-									{model.name}
+									{model.name.replace('gpt-3.5-turbo','kiri').replace('gpt-4o','kiri:o')}
 								</div>
 
 								<!-- <div class=" text-xs text-gray-600 line-clamp-1">
