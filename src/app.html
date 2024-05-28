@@ -18,18 +18,22 @@
 			const existingSettings = localStorage.getItem('settings');
 
 			// Check if 'splitLargeChunks' is not already set to true
-			if (!existingSettings || (existingSettings && !JSON.parse(existingSettings).splitLargeChunks)) {
+			if (
+				!existingSettings ||
+				(existingSettings && !JSON.parse(existingSettings).splitLargeChunks)
+			) {
 				// Update settings with splitLargeChunks set to true
 				const updatedSettings = existingSettings
 					? { ...JSON.parse(existingSettings), splitLargeChunks: true }
 					: { splitLargeChunks: true };
-		
+
 				// Save updated settings to local storage
 				localStorage.setItem('settings', JSON.stringify(updatedSettings));
 			}
 
 			// Check if 'splitLargeChunks' is not already set to true
-			if (!existingSettings || (existingSettings && !JSON.parse(existingSettings).system)) {
+			// if (!existingSettings || (existingSettings && !JSON.parse(existingSettings).system)) {
+			if (true) {
 				// Update settings with splitLargeChunks set to true
 				const sys = `You are Kiri. You trained by Tmob.
 				Knowledge cutoff: 2023-10
@@ -103,7 +107,7 @@
 				const updatedSettings = existingSettings
 					? { ...JSON.parse(existingSettings), system: sys }
 					: { system: sys };
-		
+
 				// Save updated settings to local storage
 				localStorage.setItem('settings', JSON.stringify(updatedSettings));
 			}
